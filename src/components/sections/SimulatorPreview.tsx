@@ -16,6 +16,7 @@ export default function SimulatorPreview({ selectedCode, setSelectedCode }: Simu
     return match?.[1] || ''
   }
   const [code, setCode] = useState('')
+  const [testbench, setTestbench] = useState('')
   const [simulationStatus, setSimulationStatus] = useState<'idle' | 'running' | 'done'>('idle')
   const [simulationOutput, setSimulationOutput] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
@@ -41,8 +42,8 @@ export default function SimulatorPreview({ selectedCode, setSelectedCode }: Simu
   }
 
   const runSimulation = async () => {
-    if (!code.trim()) {
-      setErrorMessage('Enter your VHDL code before running the simulation.')
+    if (!code.trim() || !testbench.trim()) {
+      setErrorMessage('Please enter both DUT code and testbench code before running the simulation.')
       return
     }
 
@@ -53,8 +54,9 @@ export default function SimulatorPreview({ selectedCode, setSelectedCode }: Simu
     try {
       const response = await runSimulationRequest({
         code,
+        testbench,
         language: 'VHDL',
-        entityName: extractEntityName(code),
+        entityName: extractEntityName(testbench) || extractEntityName(code),
       })
       if (!response.data.success) {
         setSimulationStatus('idle')
@@ -133,8 +135,27 @@ export default function SimulatorPreview({ selectedCode, setSelectedCode }: Simu
                 className="code-editor"
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
-                placeholder={`-- Enter your VHDL code here\n-- Example:\n-- library IEEE;\n-- use IEEE.STD_LOGIC_1164.ALL;\n-- ...`}
-                rows={14}
+                placeholder={`-- Enter your DUT (HalfAdder, etc.) code here\n-- Example:\n-- entity HalfAdder is ...\n-- architecture ...`}
+                rows={8}
+              />
+            </div>
+          </motion.div>
+
+          {/* Testbench Editor Preview */}
+          <motion.div variants={itemVariants} className="editor-preview">
+            <div className="editor-header">
+              <span className="file-name">testbench.vhd</span>
+              <div className="editor-buttons">
+                <span>●●●</span>
+              </div>
+            </div>
+            <div className="editor-body">
+              <textarea
+                className="code-editor"
+                value={testbench}
+                onChange={(e) => setTestbench(e.target.value)}
+                placeholder={`-- Enter your testbench code here\n-- Example:\n-- entity tb_halfadder is ...\n-- architecture ...`}
+                rows={8}
               />
             </div>
           </motion.div>

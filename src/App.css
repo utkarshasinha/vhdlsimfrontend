@@ -1,0 +1,126 @@
+:root {
+  --primary-green: #00ff41;
+  --neon-green: #39ff14;
+  --dark-green: #001a00;
+  --bg-black: #0a0e27;
+  --dark-black: #050810;
+  --circuit-green: #00d084;
+  --text-primary: #00ff41;
+  --text-secondary: #88ff88;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--dark-black);
+  color: var(--text-primary);
+  font-family: 'Courier New', monospace;
+  overflow-x: hidden;
+}
+
+.app-container {
+  position: relative;
+  width: 100%;
+  background: var(--dark-black);
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+/* Circuit Pattern Background */
+.circuit-grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(0deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+/* Glow Effects */
+.glow-box {
+  position: relative;
+  border: 2px solid var(--primary-green);
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3),
+              inset 0 0 20px rgba(0, 255, 65, 0.1);
+  background: rgba(0, 255, 65, 0.02);
+}
+
+.glow-box:hover {
+  box-shadow: 0 0 40px rgba(0, 255, 65, 0.6),
+              inset 0 0 30px rgba(0, 255, 65, 0.2);
+  background: rgba(0, 255, 65, 0.05);
+}
+
+.neon-text {
+  color: var(--neon-green);
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.8),
+               0 0 20px rgba(57, 255, 20, 0.4);
+  font-weight: bold;
+}
+
+.circuit-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, var(--primary-green), transparent);
+  box-shadow: 0 0 10px var(--primary-green);
+}
+
+/* Smooth Transitions */
+button, a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input, textarea {
+  background: rgba(0, 255, 65, 0.02);
+  border: 1px solid rgba(0, 255, 65, 0.3);
+  color: var(--text-primary);
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+  background: rgba(0, 255, 65, 0.05);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-green);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-green);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .circuit-grid {
+    background-size: 30px 30px;
+  }
+}

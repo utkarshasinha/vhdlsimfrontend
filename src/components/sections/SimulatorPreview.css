@@ -1,0 +1,255 @@
+.simulator-preview {
+  position: relative;
+  padding: 120px 40px;
+  overflow: hidden;
+}
+
+.simulator-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 60px;
+  align-items: center;
+}
+
+.simulator-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.editor-preview {
+  border: 2px solid rgba(0, 255, 65, 0.3);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+  transition: all 0.3s ease;
+}
+
+.editor-preview:hover {
+  border-color: var(--primary-green);
+  box-shadow: 0 0 40px rgba(0, 255, 65, 0.4);
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: rgba(0, 255, 65, 0.05);
+  border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+.file-name {
+  color: var(--primary-green);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.editor-buttons {
+  color: var(--primary-green);
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.editor-body {
+  padding: 20px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.code-editor {
+  width: 100%;
+  min-height: 320px;
+  resize: vertical;
+  background: rgba(0, 0, 0, 0.9);
+  color: var(--text-secondary);
+  border: 1px solid rgba(0, 255, 65, 0.2);
+  border-radius: 4px;
+  padding: 16px;
+  outline: none;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.code-editor::placeholder {
+  color: rgba(157, 255, 123, 0.5);
+}
+
+.waveform-output {
+  padding: 15px 20px;
+  color: var(--text-secondary);
+  font-family: 'Courier New', monospace;
+  background: rgba(0, 0, 0, 0.16);
+  border-top: 1px solid rgba(0, 255, 65, 0.1);
+}
+
+.simulation-error {
+  margin-top: 15px;
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+.simulation-success {
+  margin-top: 15px;
+  color: var(--primary-green);
+  font-weight: 600;
+}
+
+.simulation-output-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--text-secondary);
+}
+
+.line {
+  display: flex;
+  align-items: center;
+}
+
+.line-number {
+  display: inline-block;
+  width: 40px;
+  color: var(--circuit-green);
+  opacity: 0.6;
+  margin-right: 20px;
+  text-align: right;
+  user-select: none;
+}
+
+.keyword {
+  color: var(--neon-green);
+  font-weight: bold;
+}
+
+.entity {
+  color: #ff6b6b;
+}
+
+.text {
+  color: var(--text-secondary);
+}
+
+.simulator-controls {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-simulate {
+  padding: 12px 30px;
+  background: var(--primary-green);
+  color: var(--dark-black);
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+}
+
+.btn-simulate:hover {
+  box-shadow: 0 0 40px rgba(0, 255, 65, 0.8);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  padding: 12px 25px;
+  background: transparent;
+  color: var(--primary-green);
+  border: 2px solid var(--primary-green);
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 255, 65, 0.1);
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+}
+
+.waveform-preview {
+  border: 2px solid rgba(0, 255, 65, 0.3);
+  border-radius: 4px;
+  background: rgba(0, 255, 65, 0.02);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.waveform-header {
+  padding: 15px 20px;
+  background: rgba(0, 255, 65, 0.05);
+  border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+  font-weight: bold;
+  color: var(--primary-green);
+}
+
+.waveform-svg {
+  width: 100%;
+  padding: 20px;
+}
+
+.signal-label {
+  font-size: 12px;
+  fill: var(--text-secondary);
+  font-weight: bold;
+}
+
+.signal-path {
+  stroke: var(--primary-green);
+  stroke-width: 2;
+  fill: none;
+  filter: drop-shadow(0 0 5px rgba(0, 255, 65, 0.5));
+}
+
+.grid-lines line {
+  opacity: 0.3;
+}
+
+.circuit-diagram {
+  width: 300px;
+  height: 300px;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.3));
+}
+
+@media (max-width: 1024px) {
+  .simulator-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .circuit-diagram {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .simulator-preview {
+    padding: 80px 20px;
+  }
+
+  .editor-body {
+    font-size: 0.75rem;
+    padding: 15px;
+  }
+
+  .simulator-controls {
+    flex-direction: column;
+  }
+
+  .btn-simulate,
+  .btn-secondary {
+    width: 100%;
+  }
+}

@@ -12,17 +12,19 @@ export default function AuthFlow({ setUser }: AuthFlowProps) {
   const [formData, setFormData] = useState({ email: '', password: '', name: '' })
   const [loading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  const [successMessage, setSuccessMessage] = useState('')
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setErrorMessage('')
+    setSuccessMessage('')
     setLoading(true)
 
     try {
       const response = isLogin
         ? await authLogin({ email: formData.email, password: formData.password })
         : await authSignup({
-            username: formData.name,
+            name: formData.name,
             email: formData.email,
             password: formData.password,
           })
@@ -199,6 +201,9 @@ export default function AuthFlow({ setUser }: AuthFlowProps) {
           <div className="feature-item">
             <span className="feature-icon">✓</span>
             <span>Unlimited designs</span>
+                    {successMessage && (
+                      <div className="success-message">{successMessage}</div>
+                    )}
           </div>
           <div className="feature-item">
             <span className="feature-icon">✓</span>

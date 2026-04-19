@@ -1,3 +1,10 @@
+## Backend Repository
+
+The backend for this project can be found here:
+https://github.com/utkarshasinha/vhdlsimulator
+
+---
+
 # VHDL Simulator UI
 
 A modern, circuit-themed VHDL/Verilog simulator frontend with continuous scrolling flow, smooth animations, and a sleek green and black aesthetic.

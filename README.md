@@ -1,4 +1,4 @@
-# VHDL Simulator
+# VHDL SIMULATOR
 
 A React + TypeScript frontend for the VHDL Simulator platform.
 

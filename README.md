@@ -1,6 +1,6 @@
 # VHDL Simulator
 
-A modern React + TypeScript frontend for the VHDL Simulator platform.
+A React + TypeScript frontend for the VHDL Simulator platform.
 
 This application provides authentication, design management, and a browser-based interface for running VHDL simulations powered by a Go backend integrated with GHDL.
 
